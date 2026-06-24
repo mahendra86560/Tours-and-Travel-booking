@@ -1,0 +1,911 @@
+
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+  padding: 15px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.navbar div {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffd43b;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* ================================================= */
+
+
+
+/* ============ footer css =============== */
+.footer {
+  background: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 18px 15px;
+    margin-top: 40px;
+  }
+
+  .footer p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 15px 10px;
+    margin-top: 30px;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+}
+
+
+
+/* ============= Home Page Styles ===================== */
+
+/* Main Container */
+/* =========================
+   Container
+========================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+/* =========================
+   Tour Grid
+========================= */
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+/* =========================
+   Card
+========================= */
+.card {
+  width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+/* =========================
+   Image
+========================= */
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* =========================
+   Card Body
+========================= */
+.card-body {
+  padding: 15px;
+}
+
+.card-body h4 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.card-body p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card-body h5 {
+  font-size: 22px;
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   Button
+========================= */
+.card-body button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #0d6efd;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-body button:hover {
+  background: #0b5ed7;
+}
+
+/* =========================
+   Laptop
+========================= */
+@media (max-width: 1100px) {
+  .tour-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    width: 300px;
+  }
+
+  .card img {
+    height: 135px;
+  }
+}
+
+/* =========================
+   Tablet
+========================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  .container h2 {
+    font-size: 2rem;
+  }
+
+  .tour-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    width: 280px;
+  }
+
+  .card img {
+    height: 130px;
+  }
+
+  .card-body h4 {
+    font-size: 20px;
+  }
+
+  .card-body h5 {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+@media (max-width: 576px) {
+  .tour-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 330px;
+  }
+
+  .card img {
+    height: 170px;
+  }
+
+  .container h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-body {
+    padding: 14px;
+  }
+
+  .card-body h4 {
+    font-size: 18px;
+  }
+
+  .card-body p {
+    font-size: 14px;
+  }
+
+  .card-body h5 {
+    font-size: 18px;
+  }
+
+  .card-body button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* ============== Login css ======================= */
+/* Page Background */
+body {
+  background: linear-gradient(
+    135deg,
+    #0d6efd,
+    #4f46e5,
+    #7c3aed
+  );
+  min-height: 100vh;
+}
+
+/* Login Form Container */
+.auth-form {
+  width: 100%;
+  max-width: 430px;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  animation: fadeIn 0.8s ease;
+}
+
+/* Heading */
+.auth-form h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+.auth-form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  color: white;
+  font-size: 15px;
+
+  transition: all 0.3s ease;
+}
+
+.auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.auth-form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+}
+
+/* Button */
+.auth-form button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+  color: #4f46e5;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-form button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  .auth-form {
+    max-width: 90%;
+    padding: 35px 25px;
+    margin: 60px auto;
+  }
+
+  .auth-form h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .auth-form {
+    max-width: 95%;
+    padding: 30px 20px;
+    margin: 40px auto;
+    border-radius: 20px;
+  }
+
+  .auth-form h2 {
+    font-size: 1.6rem;
+  }
+
+  .auth-form input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .auth-form button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+
+/* ============Tour Details css================= */
+
+/* Main Section */
+.details-container {
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 0 5%;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Tour Image */
+.details-container img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15);
+
+  transition: 0.4s ease;
+}
+
+.details-container img:hover {
+  transform: scale(1.02);
+}
+
+/* Content Box */
+.details-content {
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.08);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative Top Border */
+.details-content::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 6px;
+
+  background: linear-gradient(
+    90deg,
+    #0d6efd,
+    #00c6ff
+  );
+}
+
+/* Title */
+.details-content h1 {
+  font-size: 2.5rem;
+  color: #222;
+
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Description */
+.details-content p {
+  color: #666;
+
+  line-height: 1.9;
+
+  font-size: 16px;
+
+  margin-bottom: 25px;
+}
+
+/* Price */
+.details-content h2 {
+  font-size: 2rem;
+
+  color: #0d6efd;
+
+  margin-bottom: 25px;
+
+  font-weight: 700;
+}
+
+/* Book Button */
+.details-content button {
+  padding: 15px 40px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #198754,
+    #20c997
+  );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.details-content button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 25px rgba(25, 135, 84, 0.3);
+}
+
+/* Tablet */
+@media screen and (max-width: 992px) {
+  .details-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .details-container img {
+    height: 420px;
+  }
+
+  .details-content {
+    padding: 30px;
+  }
+
+  .details-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .details-container {
+    padding: 20px;
+    margin: 30px auto;
+  }
+
+  .details-container img {
+    height: 300px;
+    border-radius: 20px;
+  }
+
+  .details-content {
+    padding: 25px;
+    border-radius: 20px;
+  }
+
+  .details-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .details-content p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .details-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .details-content button {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+  .details-container img {
+    height: 240px;
+  }
+
+  .details-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .details-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .details-content {
+    padding: 20px;
+  }
+}
+
+
+
+/* =========== my booking css ================ */
+
+/* Main Container */
+.bookings-container {
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 0 5%;
+}
+
+.bookings-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Heading Underline */
+.bookings-container h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #0d6efd,
+    #20c997
+  );
+
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+/* Cards Grid */
+.bookings-container {
+  display: grid;
+  gap: 25px;
+}
+
+/* Booking Card */
+.booking-card {
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+
+  overflow: hidden;
+}
+
+/* Decorative Left Border */
+.booking-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 6px;
+  height: 100%;
+
+  background: linear-gradient(
+    to bottom,
+    #0d6efd,
+    #20c997
+  );
+}
+
+/* Hover */
+.booking-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Tour Title */
+.booking-card h3 {
+  color: #0d6efd;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* Details */
+.booking-card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Empty Booking Message */
+.bookings-container > p {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+  margin-top: 30px;
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  .bookings-container {
+    padding: 0 20px;
+    margin: 40px auto;
+  }
+
+  .bookings-container h2 {
+    font-size: 2rem;
+  }
+
+  .booking-card {
+    padding: 20px;
+  }
+
+  .booking-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .booking-card p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .bookings-container {
+    padding: 0 15px;
+    margin: 30px auto;
+  }
+
+  .bookings-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .booking-card {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .booking-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .booking-card p {
+    font-size: 14px;
+  }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1200px) {
+  .bookings-container {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(350px, 1fr)
+    );
+  }
+}
+
+
+
+/* ===============booking details css============================ */
+
+/* Page Background */
+.my-bookings-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+
+  background: linear-gradient(
+    135deg,
+    #0d6efd,
+    #6a11cb
+  );
+}
+
+.my-bookings-title {
+  text-align: center;
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.booking-card {
+  width: 100%;
+  max-width: 800px;
+
+  margin: 20px auto;
+
+  padding: 25px 30px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border-radius: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  transition: 0.3s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+}
+
+.booking-info h4 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.booking-info p {
+  margin: 6px 0;
+  color: #555;
+}
+
+.cancel-btn {
+  background: #dc3545;
+  color: white;
+
+  border: none;
+
+  padding: 12px 22px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #bb2d3b;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .booking-card {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .cancel-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .my-bookings-title {
+    font-size: 2rem;
+  }
+
+  .booking-card {
+    padding: 20px;
+  }
+}

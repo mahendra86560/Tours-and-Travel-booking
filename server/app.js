@@ -2,9 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const connectDB = require("./config/db");
 
 // ================== APP INIT ==================
 const app = express();
+// ================= DATABASE CONNECTION ==================
+
+connectDB()
 
 // ================== MIDDLEWARE ==================
 app.use(cors());
@@ -25,16 +29,7 @@ app.get("/", (req, res) => {
   res.send(" Tours & Travels API Running");
 });
 
-// ================== DB CONNECTION ==================
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log(" MongoDB Connected");
-  } catch (error) {
-    console.error("DB Error:", error.message);
-    process.exit(1);
-  }
-};
+
 
 // ================== START SERVER ==================
 const PORT = process.env.PORT || 5000;

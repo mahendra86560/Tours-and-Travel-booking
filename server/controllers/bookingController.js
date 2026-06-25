@@ -1,18 +1,21 @@
 const Booking = require("../models/Booking");
 
-
-
-
 const createBooking = async (req, res) => {
   try {
-    console.log("Request Body:", req.body);
-    console.log("User:", req.user);
+    const { tourId, name, gender, mobile, persons, date } = req.body;
 
-    const { tourId, persons, date } = req.body;
+    if (!tourId || !name || !gender || !mobile || !persons || !date) {
+      return res.status(400).json({
+        message: "All fields are required.",
+      });
+    }
 
     const booking = await Booking.create({
       user: req.user._id,
       tour: tourId,
+      name,
+      gender,
+      mobile,
       persons,
       date,
     });
@@ -26,6 +29,7 @@ const createBooking = async (req, res) => {
     });
   }
 };
+
 // Get My Bookings
 const getMyBookings = async (req, res) => {
   try {
@@ -72,7 +76,7 @@ const cancelBooking = async (req, res) => {
 };
 
 module.exports = {
-  createBooking ,
+  createBooking,
   getMyBookings,
   cancelBooking,
 };

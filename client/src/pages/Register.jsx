@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../api/axios";
-
 
 function Register() {
   const navigate = useNavigate();
@@ -12,59 +11,71 @@ function Register() {
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const submitHandler = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
 
-    await API.post(
-      "/auth/register",
-      form
-    );
-
-    navigate("/login");
+    try {
+      await API.post("/auth/register", form);
+      navigate("/login");
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Registration failed. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form
-      className="auth-form"
-      onSubmit={submitHandler}
-    >
-      <h2>Register</h2>
+    <div className="auth-wrapper">
+      <form className="auth-form" onSubmit={submitHandler}>
+        <div className="auth-icon">✈</div>
+        <h2>Create Account</h2>
+        <p className="auth-subtitle">Join TravelGo and start exploring</p>
 
-      <input
-        type="text"
-        placeholder="Name"
-        onChange={(e) =>
-          setForm({
-            ...form,
-            name: e.target.value,
-          })
-        }
-      />
+        {error && <div className="auth-error">{error}</div>}
 
-      <input
-        type="email"
-        placeholder="Email"
-        onChange={(e) =>
-          setForm({
-            ...form,
-            email: e.target.value,
-          })
-        }
-      />
+        <label>Full Name</label>
+        <input
+          type="text"
+          placeholder="John Doe"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          required
+        />
 
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) =>
-          setForm({
-            ...form,
-            password: e.target.value,
-          })
-        }
-      />
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="you@example.com"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          required
+        />
 
-      <button>Register</button>
-    </form>
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="••••••••"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          required
+        />
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Creating account..." : "Register"}
+        </button>
+
+        <p className="auth-switch">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </form>
+    </div>
   );
 }
 

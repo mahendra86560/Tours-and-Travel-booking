@@ -7,37 +7,38 @@ function TourDetails() {
   const navigate = useNavigate();
 
   const [tour, setTour] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get(`/tours/${id}`).then((res) =>
-      setTour(res.data)
-    );
+    API.get(`/tours/${id}`)
+      .then((res) => setTour(res.data))
+      .finally(() => setLoading(false));
   }, [id]);
 
-  if (!tour) return <h2>Loading...</h2>;
+  if (loading) return <p className="state-msg">Loading tour...</p>;
+  if (!tour) return <p className="state-msg">Tour not found.</p>;
 
   return (
-    <div className="container py-5">
-      <img
-        src={tour.image}
-        alt={tour.title}
-        className="img-fluid mb-4"
-      />
+    <div className="detail-container">
+      <div className="detail-card">
+        <div className="detail-img-wrap">
+          <img src={tour.image} alt={tour.title} />
+          <span className="detail-price-tag">₹{tour.price}</span>
+        </div>
 
-      <h2>{tour.title}</h2>
+        <div className="detail-body">
+          <h2>{tour.title}</h2>
+          <p className="detail-location">
+            <span className="pin">📍</span> {tour.location}
+          </p>
 
-      <p>{tour.description}</p>
+          <p className="detail-description">{tour.description}</p>
 
-      <h4>₹{tour.price}</h4>
-
-      <button
-        className="btn btn-success"
-        onClick={() =>
-          navigate(`/booking/${tour._id}`)
-        }
-      >
-        Book Now
-      </button>
+          <button className="btn-book" onClick={() => navigate(`/booking/${tour._id}`)}>
+            Book Now
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

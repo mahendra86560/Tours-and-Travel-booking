@@ -7,7 +7,7 @@ const {
   cancelBooking,
 } = require("../controllers/bookingController");
 
-const { protect } = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authmiddleware");
 
 router.post("/", protect, createBooking);
 

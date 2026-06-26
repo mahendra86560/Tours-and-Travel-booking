@@ -8,7 +8,7 @@ const {
   cancelBooking,
 } = require("../controllers/bookingController");
 
-const { protect } = require(path.join(__dirname, "../middleware/authmiddleware"));
+const { protect } = require(path.join(__dirname, "../middleware/authMiddleware"));
 
 router.post("/", protect, createBooking);
 router.get("/my", protect, getMyBookings);
